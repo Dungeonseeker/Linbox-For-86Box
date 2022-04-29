@@ -1,0 +1,110 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,76,74)
+  Text = ("Linbox For 86Box (Very Early Alpha)")
+  Resizable = False
+  Centered = True
+  { HBox1 HBox
+    MoveScaled(0,0,76,17)
+  }
+  { !Frame1 Frame
+    MoveScaled(1,0,74,17)
+    #Public = True
+    Text = ("Virtual Machine Control")
+    { Panel1 Panel
+      MoveScaled(1,2,72,14)
+      { !BtnCreate Button
+        MoveScaled(1,1,10,10)
+        #Public = True
+        ToolTip = ("Create A New Virtual Machine")
+        Picture = Picture["Icons/Actions/14 - new.png"]
+      }
+      { Spring1 Spring
+        MoveScaled(11,1,2,10)
+      }
+      { !BtnRun Button
+        MoveScaled(13,1,10,10)
+        #Public = True
+        ToolTip = ("Run Selected Virtual Machine")
+        Picture = Picture["Icons/Actions/18 - start.png"]
+      }
+      { Spring2 Spring
+        MoveScaled(23,1,2,10)
+      }
+      { !BtnRemove Button
+        MoveScaled(25,1,10,10)
+        #Public = True
+        ToolTip = ("Remove Selected Virtual Machine")
+        Picture = Picture["Icons/Actions/19 - stop.png"]
+      }
+      { Spring3 Spring
+        MoveScaled(35,1,2,10)
+      }
+      { !BtnSettings Button
+        MoveScaled(37,1,10,10)
+        #Public = True
+        ToolTip = ("Open Settings For Selected Virtual Machine")
+        Picture = Picture["Icons/Actions/9 - gears.png"]
+      }
+      { Spring4 Spring
+        MoveScaled(47,1,2,10)
+      }
+      { btnPrint Button
+        MoveScaled(49,1,10,10)
+        Visible = False
+      }
+      { Spring5 Spring
+        MoveScaled(59,1,2,10)
+      }
+      { !BtnQuit Button
+        MoveScaled(61,1,10,10)
+        #Public = True
+        ToolTip = ("Quit Linbox")
+        Picture = Picture["Icons/Actions/4 - close2.png"]
+      }
+      { Label1 Label
+        MoveScaled(1,11,10,3)
+        Alignment = Align.Center
+        Text = ("Create VM")
+      }
+      { Label2 Label
+        MoveScaled(61,11,10,3)
+        Alignment = Align.Center
+        Text = ("Quit")
+      }
+      { Label3 Label
+        MoveScaled(49,11,10,3)
+        Visible = False
+        Alignment = Align.Center
+        Text = ("Print")
+      }
+      { Label4 Label
+        MoveScaled(36,11,12,3)
+        Alignment = Align.Center
+        Text = ("VM Settings")
+      }
+      { Label5 Label
+        MoveScaled(25,11,10,3)
+        Alignment = Align.Center
+        Text = ("Remove VM")
+      }
+      { Label6 Label
+        MoveScaled(13,11,10,3)
+        Alignment = Align.Center
+        Text = ("Run VM")
+      }
+    }
+  }
+  { Panel3 Panel
+    MoveScaled(1,17,75,55)
+    { Frame2 Frame
+      MoveScaled(0,0,74,54)
+      Text = ("Virtual Machines")
+      { !LbVmList ListBox
+        MoveScaled(1,3,72,50)
+        #Public = True
+      }
+    }
+  }
+}

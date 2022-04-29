@@ -1,0 +1,24 @@
+' Gambas module file
+
+Private StPath As String = "/usr/bin/86box"
+Private StPath2 As String = "/usr/bin/86Box"
+
+Public Sub FSChk()
+  If Not Exist(StPath) And If Not Exist(StPath2) Then
+    Message.Error("86Box is not currently installed", "OK")
+    FMain.Close()
+  Else If Exist(StPath2) And If Not Exist(StPath) Then 
+    ClassVar.StVmPath = StPath2
+  Endif
+
+  If Not Exist(ClassVar.StAppPath) Then 
+    Message.Error(("Linbox configuration file not found, \none will be created at: ") & ClassVar.StAppPath, ("OK"))
+  Else If Exist(ClassVar.StAppPath) Then 
+    FMain.LbVmList.Clear
+    ClassVar.fFile = Open ClassVar.StAppPath For Read 
+    ClassVar.cData = Read #ClassVar.fFile As Collection
+    FMain.LbVmList.List = ClassVar.cData.Keys
+    Close #ClassVar.fFile
+  Endif
+End
+

@@ -1,0 +1,12 @@
+' Gambas module file
+
+Public Sub Update()
+  If Not Exist(ClassVar.stAppPath) Then 
+    ClassVar.fFile = Open ClassVar.stAppPath For Create
+  Else If Exist(ClassVar.stAppPath) Then 
+    ClassVar.fFile = Open ClassVar.stAppPath For Write
+  End If
+  Finally
+  Write #ClassVar.fFile, ClassVar.cData As Collection
+  Close #ClassVar.fFile
+End

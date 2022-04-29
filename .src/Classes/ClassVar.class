@@ -1,0 +1,10 @@
+' Gambas class file
+
+Static Public StCall As String
+Static Public StCfgPath As String = User.Home &/ ".config/linbox/"
+Static Public StVmPath As String = "/usr/bin/86box"
+Static Public StAppPath As String = User.Home &/ ".config/linbox/linbox.cfg"
+Static Public StVmName As String
+Static Public StVmCfg As String
+Static Public cData As New Collection
+Static Public fFile As File

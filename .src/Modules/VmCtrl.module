@@ -1,0 +1,58 @@
+' Gambas module file
+
+Public Sub VmCtrl()
+  Dim Options As Collection = ["VmCreate": ClassVar.StVmPath & " -S -P " & ClassVar.StCfgPath & " -C " & ClassVar.StVmName & ".cfg",
+                               "VmRun": ClassVar.StVmPath & " -P " & ClassVar.StCfgPath & " -C " & ClassVar.StVmName & ".cfg",
+                               "VmSet": ClassVar.StVmPath & " -S -P " & ClassVar.StCfgPath & " -C " & ClassVar.StVmName & ".cfg"
+                              ]
+  Dim Caller As String = ClassVar.StCall
+  Dim sKeyMode As Integer
+  Dim sKeyValue As String
+  Dim sCat As String
+  
+  If Caller = "btnOK" Then 
+    sKeyValue = ClassVar.StVmName
+    sCat = ClassVar.StCfgPath & sKeyValue & ".cfg"
+    If ClassVar.cData.Exist(sKeyValue) Then 
+      Message.Error("Entry Exists, Please Choose Another Name", "OK")
+      Return
+    Else If sKeyValue = "" Then 
+        Message.Error("Please Type A Name", "OK")
+        Return
+    Else If sKeyValue <> "" Then
+        Shell Options["VmCreate"] Wait
+        ClassVar.cData.Add(sCat, sKeyValue)
+        FMain.LbVmList.Add(sKeyValue)
+        ColUpdate.Update
+    Endif
+  Else If Caller = "BtnRun" Then 
+    sKeyValue = FMain.LbVmList.Text
+    If sKeyValue = "" Then 
+      Message.Error("Please Select A Virtual Machine")
+    Else If sKeyValue <> "" Then
+      Print Options["VmRun"]
+    Endif
+  Else If Caller = "BtnRemove" Then 
+    sKeyValue = FMain.LbVmList.Text
+    sCat = ClassVar.StCfgPath & sKeyValue & ".cfg"
+    If sKeyValue = "" Then 
+      Message.Error("Please Select A Virtual Machine")
+    Else If Message.Error("You Are About To Delete: " & sKeyValue & " \n\n ARE YOU SURE??", "OK", "Cancel") = 1 Then 
+        sKeyMode = FMain.LbVmList.Find(sKeyValue)
+        ClassVar.cData.Remove(sKeyValue)
+        FMain.LbVmList.Remove(sKeyMode)
+        Kill sCat
+        ColUpdate.Update
+    Endif
+  Else If Caller = "BtnSettings" Then 
+    sKeyValue = FMain.LbVmList.Text
+    If sKeyValue = "" Then 
+      Message.Error("Please Select A Virtual Machine")
+    Else
+      Shell Options["VmSet"] Wait
+    Endif
+  Endif
+  
+  Finally
+  ClassVar.StCall = ""
+End

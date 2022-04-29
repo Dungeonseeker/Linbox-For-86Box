@@ -1,0 +1,37 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,15)
+  Resizable = False
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { Label1 Label
+    MoveScaled(2,2,19,4)
+    Text = ("Virtual Machine Name")
+  }
+  { !tb_vmname TextBox
+    MoveScaled(22,2,40,4)
+    #Public = True
+    Placeholder = ("Name Your Virtual Machine")
+    MaxLength = 100
+  }
+  { HBox1 HBox
+    MoveScaled(1,8,62,4)
+    Spacing = True
+    { Panel1 Panel
+      MoveScaled(4,0,4,4)
+      Expand = True
+    }
+    { btnOK Button
+      MoveScaled(29,0,16,4)
+      Text = ("OK")
+      Default = True
+    }
+    { btnCancel Button
+      MoveScaled(46,0,16,4)
+      Text = ("Cancel")
+      Cancel = True
+    }
+  }
+}

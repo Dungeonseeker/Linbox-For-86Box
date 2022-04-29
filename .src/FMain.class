@@ -1,0 +1,40 @@
+' Gambas class file
+
+Public Sub Form_Open()
+  FsChk.FSChk()
+End
+
+Public Sub BtnQuit_Click()
+  Me.Close
+End
+
+Public Sub BtnCreate_Click()
+  FNewVm.Run()
+End 
+
+Public Sub BtnRun_Click()
+  ClassVar.StCall = BtnRun.Name
+  VmCtrl.VmCtrl()
+End
+
+Public Sub BtnRemove_Click()
+  ClassVar.StCall = BtnRemove.Name
+  VmCtrl.VmCtrl()
+End
+
+Public Sub BtnSettings_Click()
+
+  ClassVar.StCall = BtnSettings.Name
+  'ClassVar.StVmName = LbVmList.Key
+  VmCtrl.VmCtrl()
+End 
+
+Public Sub btnPrint_Click()
+  Dim sKeyValue As String
+  sKeyValue = ClassVar.cData[LbVmList.Text]
+  If sKeyValue = "" Then 
+    Message.Error("Nothing Selected Doofus")
+  Else
+    Message.Info("Selected Key is: " & LbVmList.Text & " <br/>and its value is: " & sKeyValue, "OK")
+  Endif
+End
