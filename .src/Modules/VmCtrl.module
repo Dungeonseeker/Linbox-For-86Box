@@ -30,7 +30,7 @@ Public Sub VmCtrl()
     If sKeyValue = "" Then 
       Message.Error("Please Select A Virtual Machine")
     Else If sKeyValue <> "" Then
-      Print Options["VmRun"]
+      Shell Options["VmRun"] Wait
     Endif
   Else If Caller = "BtnRemove" Then 
     sKeyValue = FMain.LbVmList.Text
