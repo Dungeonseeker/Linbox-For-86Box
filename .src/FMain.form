@@ -18,7 +18,7 @@
         MoveScaled(1,1,10,10)
         #Public = True
         ToolTip = ("Create A New Virtual Machine")
-        Picture = Picture["Icons/Actions/14 - new.png"]
+        Picture = Picture["Icons/Down.png"]
       }
       { Spring1 Spring
         MoveScaled(11,1,2,10)
@@ -27,7 +27,7 @@
         MoveScaled(13,1,10,10)
         #Public = True
         ToolTip = ("Run Selected Virtual Machine")
-        Picture = Picture["Icons/Actions/18 - start.png"]
+        Picture = Picture["Icons/Play.png"]
       }
       { Spring2 Spring
         MoveScaled(23,1,2,10)
@@ -36,7 +36,7 @@
         MoveScaled(25,1,10,10)
         #Public = True
         ToolTip = ("Remove Selected Virtual Machine")
-        Picture = Picture["Icons/Actions/19 - stop.png"]
+        Picture = Picture["Icons/DownLine.png"]
       }
       { Spring3 Spring
         MoveScaled(35,1,2,10)
@@ -45,7 +45,7 @@
         MoveScaled(37,1,10,10)
         #Public = True
         ToolTip = ("Open Settings For Selected Virtual Machine")
-        Picture = Picture["Icons/Actions/9 - gears.png"]
+        Picture = Picture["Icons/Star.png"]
       }
       { Spring4 Spring
         MoveScaled(47,1,2,10)
@@ -61,7 +61,6 @@
         MoveScaled(61,1,10,10)
         #Public = True
         ToolTip = ("Quit Linbox")
-        Picture = Picture["Icons/Actions/4 - close2.png"]
       }
       { Label1 Label
         MoveScaled(1,11,10,3)
